@@ -1,4 +1,5 @@
 ---
+import Button from "../components/common/shared/Button.astro";
 import Headline from "../components/common/shared/Headline.astro";
 import Paragraph from "../components/common/shared/Paragraph.astro";
 import Layout from "../layouts/Layout.astro";
@@ -6,7 +7,6 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <h1>Home Page</h1>
-
   <div>
     <Headline hlstyle="one">Aliquam tincidunt mauris eu risus.</Headline>
     <Headline hlstyle="two">Aliquam tincidunt mauris eu risus.</Headline>
@@ -20,5 +20,11 @@ import Layout from "../layouts/Layout.astro";
       sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl.
       Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
     </Paragraph>
+    <div>
+      <Button btnstyle="one">Get Started</Button>
+    </div>
+    <div>
+      <Button btnstyle="two">Client Portal</Button>
+    </div>
   </div>
 </Layout>
