@@ -1,0 +1,23 @@
+---
+import Button from "../../common/shared/Button.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./intro.scss";
+
+const { smallTitle, title, subTitle, content, buttonText } = Astro.props.data;
+---
+
+<div class="home-intro">
+  <Wrapper>
+    <div>
+      <h2>{smallTitle}</h2>
+      <h2>{title}</h2>
+      <h3 set:html={subTitle} />
+    </div>
+    <div set:html={content} />
+    <div>
+      <Button ele="a" btnstyle="one">
+        {buttonText}
+      </Button>
+    </div>
+  </Wrapper>
+</div>

@@ -1,0 +1,7 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.home-intro {
+  background-color: $shadowColor;
+}

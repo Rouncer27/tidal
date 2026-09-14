@@ -22,3 +22,13 @@ export const Hero_Query = `
         }
     }
 `;
+
+export const Intro_Query = `
+    intro: introComponent {
+        smallTitle
+        title
+        subTitle
+        content
+        buttonText
+    }
+`;
