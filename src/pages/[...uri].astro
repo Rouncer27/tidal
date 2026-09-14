@@ -71,6 +71,18 @@ switch (true) {
     TemplateComponent = (await import("../templates/HomeTemplate.astro"))
       .default;
     break;
+  case templateName.includes("privacy"):
+    TemplateComponent = (await import("../templates/PrivacyTemplate.astro"))
+      .default;
+    break;
+  case templateName.includes("podcast"):
+    TemplateComponent = (await import("../templates/PodcastTemplate.astro"))
+      .default;
+    break;
+  case templateName.includes("contact"):
+    TemplateComponent = (await import("../templates/ContactTemplate.astro"))
+      .default;
+    break;
   default:
     TemplateComponent = (await import("../templates/DefaultTemplate.astro"))
       .default;
