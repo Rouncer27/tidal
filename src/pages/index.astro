@@ -1,30 +1,41 @@
 ---
-import Button from "../components/common/shared/Button.astro";
-import Headline from "../components/common/shared/Headline.astro";
-import Paragraph from "../components/common/shared/Paragraph.astro";
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Home/Hero/Hero.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+import { Hero_Query } from "../data/home/queries";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query homePageQuery {
+		    page(id: "/", idType: URI) {
+          		${Page_Seo_Query}
+            	homePage {
+              		${Hero_Query}
+            	}
+          	}
+        }
+	  `,
+  }),
+});
+
+const {
+  data: {
+    page: { seoMetaTags, homePage },
+  },
+} = await response.json();
 ---
 
-<Layout>
-  <h1>Home Page</h1>
-  <div>
-    <Headline hlstyle="one">Aliquam tincidunt mauris eu risus.</Headline>
-    <Headline hlstyle="two">Aliquam tincidunt mauris eu risus.</Headline>
-    <Headline hlstyle="three">Aliquam tincidunt mauris eu risus.</Headline>
-    <Headline hlstyle="four">Aliquam tincidunt mauris eu risus.</Headline>
-    <Paragraph pstyle="one">
-      Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae
-      luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing,
-      commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit
-      tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices
-      sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl.
-      Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-    </Paragraph>
-    <div>
-      <Button btnstyle="one">Get Started</Button>
-    </div>
-    <div>
-      <Button btnstyle="two">Client Portal</Button>
-    </div>
-  </div>
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+  isHome={true}
+>
+  <Hero data={homePage.hero} />
 </Layout>
