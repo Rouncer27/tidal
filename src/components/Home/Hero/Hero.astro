@@ -2,12 +2,14 @@
 import "./hero.scss";
 import { Image } from "astro:assets";
 
-const { heroImage } = Astro.props.data;
+const { heroImage, heroTitle, heroContent, heroButtonText, heroButtonLink } =
+  Astro.props.data;
 
 const imageSrc = heroImage?.node?.sourceUrl;
 const imageAlt = heroImage?.node?.altText || "";
 
 import heroWave from "../../../assets/green-wave.png";
+import Button from "../../common/shared/Button.astro";
 ---
 
 <div class="hero">
@@ -22,6 +24,19 @@ import heroWave from "../../../assets/green-wave.png";
       inferSize={true}
       class="hero-background-img"
     />
+  </div>
+  <div class="hero-content">
+    <div class="hero-content-container">
+      <div>
+        <h2 set:html={heroTitle} />
+      </div>
+      <div set:html={heroContent} />
+      <div>
+        <Button ele="a" btnstyle="one" href={heroButtonLink.edges[0].node.uri}>
+          {heroButtonText}
+        </Button>
+      </div>
+    </div>
   </div>
   <div class="hero-graphic">
     <img src={heroWave.src} alt={"Mountain background"} />
