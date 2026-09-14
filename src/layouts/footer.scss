@@ -1,0 +1,37 @@
+@use "../styles/abstracts/" as *;
+@use "../styles/global/paragraphs";
+
+.footer {
+  position: relative;
+  padding: 5rem 0;
+  background-color: $primaryColor;
+
+  &-wrapper {
+    align-items: center;
+  }
+
+  &-policy {
+    width: calc(100%);
+    text-align: center;
+
+    a {
+      @extend .p-one;
+      color: $whiteColor;
+
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+
+  &-copy {
+    width: calc(100%);
+    text-align: center;
+
+    p {
+      @extend .p-one;
+      color: $whiteColor;
+      margin-bottom: 0;
+    }
+  }
+}
