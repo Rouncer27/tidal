@@ -1,0 +1,49 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.home-podcast {
+  padding: 4rem 0;
+  background-color: $tertiaryColor;
+
+  &-title {
+    width: 100%;
+    margin-bottom: 6rem;
+    text-align: center;
+
+    h2 {
+      @extend .hl-four;
+      margin-bottom: 3rem;
+      color: $whiteColor;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      @extend .hl-one;
+      max-width: 95rem;
+      margin: auto;
+      color: $whiteColor;
+    }
+  }
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    &-icon {
+      width: calc(30% - 5rem);
+      margin-right: 5rem;
+    }
+
+    &-content {
+      width: calc(70% - 5rem);
+      margin-left: 5rem;
+
+      p {
+        color: $whiteColor;
+      }
+    }
+  }
+}

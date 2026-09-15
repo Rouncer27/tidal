@@ -5,6 +5,7 @@ import Intro from "../components/Home/Intro/Intro.astro";
 import Choose from "../components/Home/Choose/Choose.astro";
 import Stats from "../components/Home/Stats/Stats.astro";
 import Support from "../components/Home/Support/Support.astro";
+import Podcast from "../components/Home/Podcast/Podcast.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -13,6 +14,7 @@ import {
   Choose_Query,
   Stats_Query,
   Support_Query,
+  Podcast_Query,
 } from "../data/home/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -31,6 +33,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                   ${Choose_Query}
                   ${Stats_Query}
                   ${Support_Query}
+                  ${Podcast_Query}
             	}
           	}
         }
@@ -56,4 +59,5 @@ const {
   <Choose data={homePage.choose} />
   <Stats data={homePage.stats} />
   <Support data={homePage.support} />
+  <Podcast data={homePage.podcast} />
 </Layout>

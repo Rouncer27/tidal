@@ -103,3 +103,30 @@ export const Support_Query = `
         }
     }
 `;
+
+export const Podcast_Query = `
+    podcast: podcastComponent {
+        topTitle
+        title
+        content
+        buttonText
+        buttonLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+
+        icon  {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;

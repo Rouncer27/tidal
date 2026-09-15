@@ -1,0 +1,47 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import Button from "../../common/shared/Button.astro";
+import "./podcast.scss";
+
+const { topTitle, title, content, buttonText, buttonLink, icon } =
+  Astro.props.data;
+
+const imageSrc = icon?.node?.sourceUrl;
+const imageAlt = icon?.node?.altText || "";
+---
+
+<div class="home-podcast">
+  <Wrapper classes="home-podcast-wrapper">
+    <div class="home-podcast-title">
+      <h2>{topTitle}</h2>
+      <h3>{title}</h3>
+    </div>
+    <div class="home-podcast-container">
+      <div class="home-podcast-container-icon">
+        <div>
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            format="webp"
+            widths={[800, 1200, 1600, 2000]}
+            sizes="100vw"
+            loading="eager"
+            inferSize={true}
+            class=""
+          />
+        </div>
+      </div>
+
+      <div class="home-podcast-container-content">
+        <div set:html={content} />
+        <div>
+          <Button ele="a" btnstyle="one" href={buttonLink.edges[0].node.uri}>
+            {buttonText}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</div>
