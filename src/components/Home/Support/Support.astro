@@ -7,22 +7,22 @@ import { Image } from "astro:assets";
 const { title, supportPoints } = Astro.props.data;
 ---
 
-<div class="choose">
-  <Wrapper classes="choose-wrapper">
-    <div class="choose-title">
+<div class="support">
+  <Wrapper classes="support-wrapper">
+    <div class="support-title">
       <h2>{title}</h2>
     </div>
-    <div class="choose-steps">
+    <div class="support-steps">
       {supportPoints.map((point) => {
         const imageSrc = point.icon?.node?.sourceUrl;
         const imageAlt = point.icon?.node?.altText || "";
         return (
-          <div class="choose-step">
-            <div class="choose-step-inner">
-              <div class="choose-step-front">
-                <div class="choose-step-front-inner">
-                  <div class="choose-step-icon">
-                    <div class="choose-step-icon-container">
+          <div class="support-step">
+            <div class="support-step-inner">
+              <div class="support-step-front">
+                <div class="support-step-front-inner">
+                  <div class="support-step-icon">
+                    <div class="support-step-icon-container">
                       <Image
                         src={imageSrc}
                         alt={imageAlt}
@@ -35,20 +35,20 @@ const { title, supportPoints } = Astro.props.data;
                       />
                     </div>
                   </div>
-                  <div class="choose-step-name">
+                  <div class="support-step-name">
                     <h3>{point.title}</h3>
                   </div>
                   <div
-                    class="choose-step-front-content"
+                    class="support-step-front-content"
                     set:html={point.intro}
                   />
                 </div>
               </div>
 
-              <div class="choose-step-back">
-                <div class="choose-step-back-inner">
+              <div class="support-step-back">
+                <div class="support-step-back-inner">
                   <div
-                    class="choose-step-back-content"
+                    class="support-step-back-content"
                     set:html={point.content}
                   />
                 </div>
@@ -64,10 +64,10 @@ const { title, supportPoints } = Astro.props.data;
 <script>
   import gsap from "gsap";
 
-  const cards = document.querySelectorAll(".choose-step");
+  const cards = document.querySelectorAll(".support-step");
 
   cards.forEach((card) => {
-    const inner = card.querySelector(".choose-step-inner");
+    const inner = card.querySelector(".support-step-inner");
 
     if (!inner) return;
 
