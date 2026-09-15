@@ -1,0 +1,60 @@
+---
+// @ts-nocheck
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./meetUs.scss";
+import { Image } from "astro:assets";
+
+const { topTitle, title, linkBlocks, image } = Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
+---
+
+<div>
+  <Wrapper>
+    <div class="">
+      <h2>{topTitle}</h2>
+      <h2>{title}</h2>
+    </div>
+    <div>
+      {linkBlocks.map((link) => {
+        console.log(link);
+        const iconSrc = link?.icon?.node?.sourceUrl;
+        const iconAlt = link?.icon?.node?.altText || "";
+
+        return (
+          <div>
+            <div>
+              <Image
+                src={iconSrc}
+                alt={iconAlt}
+                format="webp"
+                widths={[800, 1200, 1600, 2000]}
+                sizes="100vw"
+                loading="eager"
+                inferSize={true}
+                class=""
+              />
+            </div>
+            <div>
+              <h3>{link.title}</h3>
+            </div>
+            <div set:html={link.content} />
+          </div>
+        );
+      })}
+    </div>
+  </Wrapper>
+  <div>
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+</div>
