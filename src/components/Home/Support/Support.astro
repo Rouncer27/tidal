@@ -1,0 +1,116 @@
+---
+// @ts-nocheck
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./support.scss";
+import { Image } from "astro:assets";
+
+const { title, supportPoints } = Astro.props.data;
+---
+
+<div class="choose">
+  <Wrapper classes="choose-wrapper">
+    <div class="choose-title">
+      <h2>{title}</h2>
+    </div>
+    <div class="choose-steps">
+      {supportPoints.map((point) => {
+        const imageSrc = point.icon?.node?.sourceUrl;
+        const imageAlt = point.icon?.node?.altText || "";
+        return (
+          <div class="choose-step">
+            <div class="choose-step-inner">
+              <div class="choose-step-front">
+                <div class="choose-step-front-inner">
+                  <div class="choose-step-icon">
+                    <div class="choose-step-icon-container">
+                      <Image
+                        src={imageSrc}
+                        alt={imageAlt}
+                        format="webp"
+                        widths={[800, 1200, 1600, 2000]}
+                        sizes="100vw"
+                        loading="eager"
+                        inferSize={true}
+                        class=""
+                      />
+                    </div>
+                  </div>
+                  <div class="choose-step-name">
+                    <h3>{point.title}</h3>
+                  </div>
+                  <div
+                    class="choose-step-front-content"
+                    set:html={point.intro}
+                  />
+                </div>
+              </div>
+
+              <div class="choose-step-back">
+                <div class="choose-step-back-inner">
+                  <div
+                    class="choose-step-back-content"
+                    set:html={point.content}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </Wrapper>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  const cards = document.querySelectorAll(".choose-step");
+
+  cards.forEach((card) => {
+    const inner = card.querySelector(".choose-step-inner");
+
+    if (!inner) return;
+
+    let isFlipped = false;
+
+    const flip = () => {
+      isFlipped = !isFlipped;
+
+      gsap.to(inner, {
+        rotationY: isFlipped ? 180 : 0,
+        duration: 0.7,
+        ease: "power2.inOut",
+      });
+    };
+
+    // Desktop: hover
+    card.addEventListener("mouseenter", () => {
+      if (window.matchMedia("(hover: hover)").matches) {
+        gsap.to(inner, {
+          rotationY: 180,
+          duration: 0.7,
+          ease: "power2.inOut",
+        });
+      }
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (window.matchMedia("(hover: hover)").matches) {
+        isFlipped = false;
+
+        gsap.to(inner, {
+          rotationY: 0,
+          duration: 0.7,
+          ease: "power2.inOut",
+        });
+      }
+    });
+
+    // Mobile/tablet: tap
+    card.addEventListener("click", () => {
+      if (!window.matchMedia("(hover: hover)").matches) {
+        flip();
+      }
+    });
+  });
+</script>

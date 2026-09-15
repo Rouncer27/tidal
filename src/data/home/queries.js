@@ -82,3 +82,24 @@ export const Stats_Query = `
         }
     }
 `;
+
+export const Support_Query = `
+    support: supportComponent {
+        title
+        supportPoints {
+            title
+            intro
+            content
+            icon  {
+                node {
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+        }
+    }
+`;
