@@ -32,3 +32,35 @@ export const Intro_Query = `
         buttonText
     }
 `;
+
+export const Choose_Query = `
+    choose: chooseComponent {
+        topTitle
+        title
+        intro
+        image  {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        circleImage  {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        points {
+            title
+            content
+        }
+    }
+`;

@@ -1,0 +1,69 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./choose.scss";
+
+import wave from "../../../assets/green-wave-reversed.png";
+
+const { topTitle, title, intro, image, circleImage, points } = Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
+const circleImageSrc = circleImage?.node?.sourceUrl;
+const circleImageAlt = circleImage?.node?.altText || "";
+---
+
+<div class="choose">
+  <Wrapper>
+    <div class="choose-intro">
+      <div class="choose-intro-title">
+        <h2>{topTitle}</h2>
+        <h2>{title}</h2>
+      </div>
+      <div class="choose-intro-content" set:html={intro} />
+    </div>
+    <div class="choose-images">
+      <div class="choose-images-square">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+
+      <div class="choose-images-circle">
+        <Image
+          src={circleImageSrc}
+          alt={circleImageAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+    </div>
+    <div class="choose-points">
+      {points.map((point) => {
+        return (
+          <div class="choose-points-point">
+            <div class="choose-points-point-title">
+              <h3>{point.title}</h3>
+            </div>
+            <div class="choose-points-point-content" set:html={point.content} />
+          </div>
+        );
+      })}
+    </div>
+  </Wrapper>
+  <div class="choose-graphic">
+    <img src={wave.src} alt={"Wave background"} />
+  </div>
+</div>

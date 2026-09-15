@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Home/Hero/Hero.astro";
 import Intro from "../components/Home/Intro/Intro.astro";
+import Choose from "../components/Home/Choose/Choose.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
-import { Hero_Query, Intro_Query } from "../data/home/queries";
+import { Hero_Query, Intro_Query, Choose_Query } from "../data/home/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -19,6 +20,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             	homePage {
               		${Hero_Query}
                   ${Intro_Query}
+                  ${Choose_Query}
             	}
           	}
         }
@@ -41,4 +43,5 @@ const {
 >
   <Hero data={homePage.hero} />
   <Intro data={homePage.intro} />
+  <Choose data={homePage.choose} />
 </Layout>
