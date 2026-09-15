@@ -64,3 +64,21 @@ export const Choose_Query = `
         }
     }
 `;
+
+export const Stats_Query = `
+    stats: statsComponent {
+        image  {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        stats {
+            stat
+        }
+    }
+`;

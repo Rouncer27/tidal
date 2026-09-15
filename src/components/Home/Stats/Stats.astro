@@ -1,0 +1,44 @@
+---
+// @ts-nocheck
+import Wrapper from "../../common/shared/Wrapper.astro";
+import { Image } from "astro:assets";
+import "./stats.scss";
+
+const { image, stats } = Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
+
+import waveBlue from "../../../assets/blue-wave.png";
+import waveWhite from "../../../assets/white-wave.png";
+---
+
+<div class="stats">
+  <div class="stats-wrapper">
+    {stats.map((stat) => {
+      return (
+        <div class="stats-wrapper-stat">
+          <h2 set:html={stat.stat} />
+        </div>
+      );
+    })}
+  </div>
+  <div class="stats-graphic-top">
+    <img src={waveBlue.src} alt={"Wave background"} />
+  </div>
+  <div class="stats-background">
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+  <div class="stats-graphic-bottom">
+    <img src={waveWhite.src} alt={"Wave background"} />
+  </div>
+</div>
