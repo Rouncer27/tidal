@@ -8,13 +8,13 @@ const { smallTitle, title, subTitle, content, buttonText } = Astro.props.data;
 
 <div class="home-intro">
   <Wrapper>
-    <div>
-      <h2>{smallTitle}</h2>
-      <h2>{title}</h2>
-      <h3 set:html={subTitle} />
+    <div class="home-intro-title">
+      <h2 class="home-intro-title-small">{smallTitle}</h2>
+      <h2 class="home-intro-title-headline">{title}</h2>
+      <h3 class="home-intro-title-sub" set:html={subTitle} />
     </div>
-    <div set:html={content} />
-    <div>
+    <div class="home-intro-content" set:html={content} />
+    <div class="home-intro-links">
       <Button ele="a" btnstyle="one">
         {buttonText}
       </Button>

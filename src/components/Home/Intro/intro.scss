@@ -4,4 +4,39 @@
 
 .home-intro {
   background-color: $shadowColor;
+
+  &-title {
+    width: 100%;
+
+    &-small {
+      @extend .hl-four;
+      color: $whiteColor;
+    }
+
+    &-headline {
+      @extend .hl-one;
+      color: $whiteColor;
+    }
+
+    &-sub {
+      @extend .hl-two;
+      color: $whiteColor;
+    }
+  }
+
+  &-content {
+    width: 100%;
+
+    p {
+      color: $whiteColor;
+    }
+  }
+
+  &-links {
+    width: 100%;
+
+    a {
+      background-color: $primaryColor;
+    }
+  }
 }
