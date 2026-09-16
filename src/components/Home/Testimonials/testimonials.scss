@@ -1,0 +1,26 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+@use "../../../styles/global/wrappers";
+
+.testimonials {
+  padding: 10rem 0 5rem;
+  background-color: #dbe5e6;
+
+  &-wrapper {
+    @extend .wrap-med;
+  }
+
+  &-title {
+    width: 100%;
+
+    h2 {
+      @extend .hl-three;
+      text-transform: uppercase;
+    }
+  }
+
+  &-slider {
+    width: 100%;
+  }
+}
