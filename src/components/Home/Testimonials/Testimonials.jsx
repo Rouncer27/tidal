@@ -18,7 +18,7 @@ const Testimonials = ({ testimonials }) => {
     <div className="testimonials">
       <div className="testimonials-wrapper">
         <div className="testimonials-title">
-          <h2>Real Stories, Real Impact</h2>
+          <h2>Hear From Our Clients</h2>
         </div>
         <Slider className="testimonials-slider" {...settings}>
           {testimonials.map((test, index) => {
