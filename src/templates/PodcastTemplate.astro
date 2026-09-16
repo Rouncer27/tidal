@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PodcastHero from "../components/PodcastTemp/PodcastHero/PodcastHero.astro";
+import PodcastIntro from "../components/PodcastTemp/PodcastIntro/PodcastIntro.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
-import { Podcast_Hero_Query } from "../data/podcast/queries";
+import {
+  Podcast_Hero_Query,
+  Podcast_Intro_Query,
+} from "../data/podcast/queries";
 
 // 2️⃣ Get the actual page data by slug
 const { uri } = Astro.params;
@@ -23,6 +27,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             templateName
             podcastTemplate {
               ${Podcast_Hero_Query}
+              ${Podcast_Intro_Query}
             }
           }                 
         }
@@ -50,4 +55,5 @@ const {
   isHome={true}
 >
   <PodcastHero data={podcastTemplate.podcastHero} />
+  <PodcastIntro data={podcastTemplate.podcastIntro} />
 </Layout>

@@ -1,0 +1,47 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.podcast-intro {
+  &-content {
+    width: 100%;
+
+    p {
+      @extend .hl-four;
+    }
+  }
+
+  &-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 85rem;
+    margin: 5rem auto 2rem;
+  }
+
+  &-point {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2rem auto;
+
+    &-image {
+      width: 20%;
+    }
+
+    &-content {
+      width: calc(80% - 3.5rem);
+      margin-left: 3.5rem;
+
+      h3,
+      p {
+        @extend .hl-four;
+        margin: 0;
+        line-height: 1.1;
+      }
+    }
+  }
+}

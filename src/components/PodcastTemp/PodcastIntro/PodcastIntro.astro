@@ -1,0 +1,48 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Button from "../../common/shared/Button.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./podcastIntro.scss";
+
+const { content, buttonText, buttonLink, points } = Astro.props.data;
+---
+
+<div class="podcast-intro">
+  <Wrapper classes="podcast-intro-wrapper">
+    <div class="podcast-intro-content">
+      <div class="podcast-intro-content-paragraph" set:html={content} />
+      <div class="podcast-intro-content-link">
+        <Button ele="a" href={buttonLink}>
+          {buttonText}
+        </Button>
+      </div>
+    </div>
+    <div class="podcast-intro-points">
+      {points.map((point, index) => {
+        const imageSrc = point?.image?.node?.sourceUrl;
+        const imageAlt = point?.image?.node?.altText || "";
+        return (
+          <div class="podcast-intro-point">
+            <div class="podcast-intro-point-image">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                format="webp"
+                widths={[800, 1200, 1600, 2000]}
+                sizes="100vw"
+                loading="eager"
+                inferSize={true}
+                class=""
+              />
+            </div>
+            <div class="podcast-intro-point-content">
+              <h3>{point.title}</h3>
+              <div set:html={point.content} />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </Wrapper>
+</div>
