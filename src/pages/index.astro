@@ -6,6 +6,7 @@ import Choose from "../components/Home/Choose/Choose.astro";
 import Stats from "../components/Home/Stats/Stats.astro";
 import Support from "../components/Home/Support/Support.astro";
 import Podcast from "../components/Home/Podcast/Podcast.astro";
+import Testimonials from "../components/Home/Testimonials/Testimonials";
 import MeetUs from "../components/Home/MeetUs/MeetUs.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
@@ -39,6 +40,17 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                   ${Meet_Us_Query}
             	}
           	}
+
+           testimonials(first: 9999999) {
+            edges {
+              node {
+                title
+                testimonialPost {
+                  testimonialQuote 
+                }
+              }
+            }
+          } 
         }
 	  `,
   }),
@@ -47,6 +59,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 const {
   data: {
     page: { seoMetaTags, homePage },
+    testimonials: { edges: testimonials },
   },
 } = await response.json();
 ---
@@ -63,5 +76,6 @@ const {
   <Stats data={homePage.stats} />
   <Support data={homePage.support} />
   <Podcast data={homePage.podcast} />
+  <Testimonials client:only="react" testimonials={testimonials} />
   <MeetUs data={homePage.meetUs} />
 </Layout>
