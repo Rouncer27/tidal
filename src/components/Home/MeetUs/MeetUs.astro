@@ -10,42 +10,48 @@ const imageSrc = image?.node?.sourceUrl;
 const imageAlt = image?.node?.altText || "";
 ---
 
-<div>
-  <Wrapper>
-    <div class="">
+<div class="meet-us">
+  <Wrapper classes="meet-us-wrapper">
+    <div class="meet-us-title">
       <h2>{topTitle}</h2>
       <h2>{title}</h2>
     </div>
-    <div>
+    <div class="meet-us-blocks">
       {linkBlocks.map((link) => {
-        console.log(link);
         const iconSrc = link?.icon?.node?.sourceUrl;
         const iconAlt = link?.icon?.node?.altText || "";
 
         return (
-          <div>
-            <div>
-              <Image
-                src={iconSrc}
-                alt={iconAlt}
-                format="webp"
-                widths={[800, 1200, 1600, 2000]}
-                sizes="100vw"
-                loading="eager"
-                inferSize={true}
-                class=""
-              />
+          <div class="meet-us-block">
+            <div class="meet-us-block-icon">
+              <div class="meet-us-block-icon-container">
+                <Image
+                  src={iconSrc}
+                  alt={iconAlt}
+                  format="webp"
+                  widths={[800, 1200, 1600, 2000]}
+                  sizes="100vw"
+                  loading="eager"
+                  inferSize={true}
+                  class=""
+                />
+              </div>
             </div>
-            <div>
+            <div class="meet-us-block-title">
               <h3>{link.title}</h3>
             </div>
-            <div set:html={link.content} />
+            <div class="meet-us-block-content" set:html={link.content} />
+            <div class="meet-us-block-link">
+              <a href={link?.buttonLink?.edges[0].node.uri}>
+                {link?.buttonText}
+              </a>
+            </div>
           </div>
         );
       })}
     </div>
   </Wrapper>
-  <div>
+  <div class="meet-us-background">
     <Image
       src={imageSrc}
       alt={imageAlt}

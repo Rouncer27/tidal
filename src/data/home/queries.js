@@ -148,6 +148,7 @@ export const Meet_Us_Query = `
         linkBlocks {
             title
             content
+            buttonText
             icon  {
                 node {
                     sourceUrl
@@ -158,6 +159,7 @@ export const Meet_Us_Query = `
                     }
                 }
             }
+        
         buttonLink {
             edges {
                 node {
