@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PodcastHero from "../components/PodcastTemp/PodcastHero/PodcastHero.astro";
 import PodcastIntro from "../components/PodcastTemp/PodcastIntro/PodcastIntro.astro";
+import Testimonials from "../components/PodcastTemp/Testimonials/Testimonials";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -32,6 +33,19 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           }                 
         }
 			}
+
+      testimonials(first: 9999999) {
+        edges {
+          node {
+            title
+            testimonialPost {
+              testimonialQuote 
+            }
+          }
+        }
+      } 
+
+
 		}
 	`,
     variables: { slug: `${uri}` },
@@ -44,6 +58,7 @@ const {
       seoMetaTags,
       template: { podcastTemplate },
     },
+    testimonials: { edges: testimonials },
   },
 } = await response.json();
 ---
@@ -56,4 +71,5 @@ const {
 >
   <PodcastHero data={podcastTemplate.podcastHero} />
   <PodcastIntro data={podcastTemplate.podcastIntro} />
+  <Testimonials client:only="react" testimonials={testimonials} />
 </Layout>

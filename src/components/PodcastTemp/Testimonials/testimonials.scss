@@ -1,0 +1,44 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+@use "../../../styles/global/wrappers";
+
+.testimonials {
+  position: relative;
+  padding: 10rem 0 5rem;
+  background-color: #dbe5e6;
+
+  &-wrapper {
+    @extend .wrap-med;
+  }
+
+  &-title {
+    width: 100%;
+
+    h2 {
+      @extend .hl-three;
+      text-transform: uppercase;
+    }
+  }
+
+  &-slider {
+    width: 100%;
+  }
+
+  &-slide {
+    &-content {
+      width: 100%;
+
+      p {
+        @extend .p-one;
+      }
+    }
+  }
+
+  &-image {
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    width: 34.5rem;
+  }
+}
