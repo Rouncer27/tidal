@@ -1,0 +1,50 @@
+---
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./podcastHero.scss";
+
+import { Image } from "astro:assets";
+
+const { image, title } = Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
+
+import heroWave from "../../../assets/white-wave-reverse.png";
+---
+
+<div class="podcast-hero">
+  <div class="podcast-hero-background">
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class="podcast-hero-background-img"
+    />
+  </div>
+  <div class="podcast-hero-content">
+    <div class="podcast-hero-content-container">
+      <div>
+        <h2 set:html={title} />
+      </div>
+    </div>
+  </div>
+  <div class="podcast-hero-graphic">
+    <img src={heroWave.src} alt={"Mountain background"} />
+  </div>
+</div>
+
+<script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+  const image = document.querySelectorAll(".podcast-hero-background img");
+  const tl = gsap.timeline();
+  tl.add("start").from(
+    image,
+    { filter: "blur(100px)", duration: 2.2 },
+    "start",
+  );
+</script>
