@@ -3,7 +3,10 @@ import reactSlick from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./testimonials.scss";
+import quoteImage from "../../../assets/quote-icon.png";
 const Slider = reactSlick.default || reactSlick;
+
+console.log("quoteImage: ", quoteImage);
 
 const settings = {
   dots: true,
@@ -11,6 +14,7 @@ const settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
+  arrows: false,
 };
 
 const Testimonials = ({ testimonials }) => {
@@ -35,6 +39,9 @@ const Testimonials = ({ testimonials }) => {
             );
           })}
         </Slider>
+      </div>
+      <div className="testimonials-image">
+        <img src={quoteImage.src} alt="Testimonials Quote" />
       </div>
     </div>
   );
