@@ -2,12 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import PodcastHero from "../components/PodcastTemp/PodcastHero/PodcastHero.astro";
 import PodcastIntro from "../components/PodcastTemp/PodcastIntro/PodcastIntro.astro";
+import PodcastEpisodes from "../components/PodcastTemp/PodcastEpisodes/PodcastEpisodes.jsx";
 import Testimonials from "../components/PodcastTemp/Testimonials/Testimonials";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
   Podcast_Hero_Query,
   Podcast_Intro_Query,
+  Podcast_Episodes_Query,
 } from "../data/podcast/queries";
 
 // 2️⃣ Get the actual page data by slug
@@ -29,6 +31,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             podcastTemplate {
               ${Podcast_Hero_Query}
               ${Podcast_Intro_Query}
+              ${Podcast_Episodes_Query}
             }
           }                 
         }
@@ -71,5 +74,6 @@ const {
 >
   <PodcastHero data={podcastTemplate.podcastHero} />
   <PodcastIntro data={podcastTemplate.podcastIntro} />
+  <PodcastEpisodes client:only="react" data={podcastTemplate.podcastEpisodes} />
   <Testimonials client:only="react" testimonials={testimonials} />
 </Layout>

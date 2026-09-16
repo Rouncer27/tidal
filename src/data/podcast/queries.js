@@ -35,3 +35,14 @@ export const Podcast_Intro_Query = `
         }
     }
 `;
+
+export const Podcast_Episodes_Query = `
+    podcastEpisodes: podcastEpisodesComponent {
+        title
+        episodes {
+            link
+            title
+            description
+        }
+    }
+`;
