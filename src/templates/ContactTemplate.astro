@@ -1,7 +1,53 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ContactHero from "../components/ContactTemp/PodcastHero/ContactHero.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+import { Contact_Hero_Query } from "../data/contact/queries";
+
+// 2️⃣ Get the actual page data by slug
+const { uri } = Astro.params;
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query contactTempQuery($slug: ID!) {
+			page(id: $slug, idType: URI) {
+				${Page_Seo_Query}
+        template {
+            ... on Template_Contact {
+            templateName
+            contactTemplate {
+              ${Contact_Hero_Query}
+            }
+          }                 
+        }
+			}
+		}
+	`,
+    variables: { slug: `${uri}` },
+  }),
+});
+
+const {
+  data: {
+    page: {
+      seoMetaTags,
+      template: { contactTemplate },
+    },
+  },
+} = await response.json();
 ---
 
-<Layout>
-  <h1>Contact Template</h1>
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+  isHome={true}
+>
+  <ContactHero data={contactTemplate.contactHero} />
 </Layout>
