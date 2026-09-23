@@ -1,0 +1,92 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.contact-meet-us {
+  position: relative;
+  padding-top: 5rem;
+  background-color: $tertiaryColor;
+
+  &-title {
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+
+    h2:first-of-type {
+      @extend .hl-four;
+      color: $whiteColor;
+      text-transform: uppercase;
+    }
+
+    h2:last-of-type {
+      @extend .hl-one;
+      color: $whiteColor;
+    }
+  }
+
+  &-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  &-block {
+    width: calc((100% / 3) - 4rem);
+    margin: 2rem;
+    padding: 2rem;
+    border: 0.1rem solid $whiteColor;
+    text-align: center;
+
+    &:nth-of-type(2n + 1) {
+      background-color: rgba($primaryColor, 0.79);
+    }
+
+    &:nth-of-type(2n + 2) {
+      background-color: rgba($tertiaryColor, 0.79);
+    }
+
+    &-icon {
+      width: 100%;
+
+      &-container {
+        max-width: 10rem;
+        margin: 2rem auto;
+      }
+    }
+
+    &-title {
+      width: 100%;
+
+      h3 {
+        @extend .hl-three;
+        color: $whiteColor;
+      }
+    }
+
+    &-content {
+      width: 100%;
+
+      p {
+        @extend .p-one;
+        color: $whiteColor;
+      }
+    }
+
+    &-link {
+      width: 100%;
+
+      a {
+        @extend .p-one;
+        color: $whiteColor;
+
+        &:hover {
+          color: $accentColor;
+        }
+      }
+    }
+  }
+}

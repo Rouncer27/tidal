@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactHero from "../components/ContactTemp/PodcastHero/ContactHero.astro";
+import MeetUs from "../components/ContactTemp/MeetUs/MeetUs.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
-import { Contact_Hero_Query } from "../data/contact/queries";
+import { Contact_Hero_Query, Meet_Us_Query } from "../data/contact/queries";
 
 // 2️⃣ Get the actual page data by slug
 const { uri } = Astro.params;
@@ -23,6 +24,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             templateName
             contactTemplate {
               ${Contact_Hero_Query}
+              ${Meet_Us_Query}
             }
           }                 
         }
@@ -50,4 +52,5 @@ const {
   isHome={true}
 >
   <ContactHero data={contactTemplate.contactHero} />
+  <MeetUs data={contactTemplate.meetUs} />
 </Layout>
