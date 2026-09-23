@@ -10,13 +10,31 @@
     align-items: center;
   }
 
+  &-social {
+    padding: 3rem 0;
+    .social-media-links {
+      .social-media-link {
+        &.linkedin-link {
+          a {
+            background-color: $accentColor;
+
+            &:hover {
+              background-color: $shadowColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &-policy {
     width: calc(100%);
     text-align: center;
 
     a {
-      @extend .p-one;
+      @extend .p-two;
       color: $whiteColor;
+      text-transform: uppercase;
 
       &:hover {
         color: $secondaryColor;
