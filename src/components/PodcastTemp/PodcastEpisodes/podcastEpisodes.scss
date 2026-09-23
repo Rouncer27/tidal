@@ -1,0 +1,103 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+@use "../../../styles/global/wrappers";
+
+.pod-eps {
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      @extend .hl-one;
+    }
+  }
+
+  &-wrapper {
+    width: 100%;
+  }
+
+  &-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    width: 100%;
+    padding-bottom: 7.5rem;
+
+    .slick-arrow {
+      top: auto;
+      bottom: 1.5rem;
+      font-size: 2rem;
+      z-index: 1000;
+
+      &::before {
+        color: $blackColor;
+      }
+
+      &.slick-prev {
+        left: 10rem;
+      }
+
+      &.slick-next {
+        right: 10rem;
+      }
+    }
+
+    .slick-list {
+      .slick-track {
+        display: flex !important;
+        align-items: stretch;
+
+        .slick-slide {
+          height: auto !important;
+          display: flex !important;
+          float: none;
+          padding: 0 1rem;
+
+          .slick-slide > div {
+            display: flex;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &-slide {
+    position: relative;
+    margin: auto 1rem;
+    background-color: $accentColor;
+    padding: 3rem;
+    padding-bottom: 10rem;
+    border-radius: 5.2rem;
+    display: flex !important;
+    height: 100%;
+
+    &-container {
+      text-align: center;
+
+      h3 {
+        @extend .hl-three;
+        color: $whiteColor;
+      }
+
+      p {
+        @extend .p-one;
+        color: $whiteColor;
+      }
+
+      &-link {
+        position: absolute;
+        right: 0;
+        bottom: 3rem;
+        left: 0;
+
+        a {
+          @extend .hl-four;
+          color: $whiteColor;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

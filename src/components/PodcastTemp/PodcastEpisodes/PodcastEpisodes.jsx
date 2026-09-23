@@ -10,28 +10,31 @@ const settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 2,
   slidesToScroll: 1,
   arrows: true,
+  centerMode: true,
+  centerPadding: "16.6667%",
 };
 
 const PodcastEpisodes = ({ data }) => {
   return (
-    <div>
-      <div>
-        <div>
+    <div className="pod-eps">
+      <div className="pod-eps-wrapper">
+        <div className="pod-eps-title">
           <h2>{data.title}</h2>
         </div>
-        <Slider {...settings}>
+        <Slider className="pod-eps-slider" {...settings}>
           {data.episodes.map((episode) => {
             return (
-              <div>
-                <div>
+              <div className="pod-eps-slide">
+                <div className="pod-eps-slide-container">
                   <h3 dangerouslySetInnerHTML={{ __html: episode.title }} />
                   <div
+                    className="pod-eps-slide-container-content"
                     dangerouslySetInnerHTML={{ __html: episode.description }}
                   />
-                  <div>
+                  <div className="pod-eps-slide-container-link">
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
