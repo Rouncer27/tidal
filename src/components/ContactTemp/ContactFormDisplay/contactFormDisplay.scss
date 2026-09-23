@@ -1,0 +1,15 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.contact-page-form {
+  background-color: #dbe5e6;
+
+  &-intro {
+    width: 100%;
+
+    p {
+      @extend .p-one;
+    }
+  }
+}

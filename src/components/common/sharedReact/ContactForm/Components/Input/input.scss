@@ -23,6 +23,7 @@
     width: 100%;
     color: $blackColor;
     padding-left: 1.5rem;
+    text-transform: uppercase;
 
     &:hover {
       cursor: initial;
@@ -47,7 +48,7 @@
     padding: 1rem 1.5rem;
     border: 0.1rem solid transparent;
     border-radius: 0;
-    background-color: #fff7eb;
+    background-color: $whiteColor;
     color: $blackColor;
   }
 

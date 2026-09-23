@@ -1,5 +1,5 @@
 export const handler = async function (req, context) {
-  const FORM_POST_URL = `https://mywebsite.ca/wp-json/contact-form-7/v1/contact-forms/8/feedback`;
+  const FORM_POST_URL = `https://tidal.swbdatabases3.ca/wp-json/contact-form-7/v1/contact-forms/195/feedback`;
   const formData = JSON.parse(req.body);
 
   const bodyFormData = new FormData();

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ContactHero from "../components/ContactTemp/PodcastHero/ContactHero.astro";
 import ContactIntro from "../components/ContactTemp/ContactIntro/ContactIntro.astro";
 import MeetUs from "../components/ContactTemp/MeetUs/MeetUs.astro";
+import ContactFormDisplay from "../components/ContactTemp/ContactFormDisplay/ContactFormDisplay.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -60,4 +61,5 @@ const {
   <ContactHero data={contactTemplate.contactHero} />
   <ContactIntro data={contactTemplate.contactIntro} />
   <MeetUs data={contactTemplate.meetUs} />
+  <ContactFormDisplay />
 </Layout>

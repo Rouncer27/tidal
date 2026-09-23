@@ -154,7 +154,7 @@ const ContactForm = () => {
           )}
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={`6Lcgb4ksAAAAADQGNBqcN4SLp-Wnta2ZaLmCc5bU`}
+            sitekey={`XXXXXXXX`}
             onChange={onChangeRecaptcha}
             onExpired={() => setIsCaptchaVerified(false)}
           />
@@ -166,7 +166,7 @@ const ContactForm = () => {
             disabled={!isCaptchaVerified || formStatus.submitting}
             type="submit"
           >
-            Send Message
+            Send
           </button>
         </div>
       </form>
