@@ -1,0 +1,12 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.contact-intro {
+  padding: 2rem 0 7.5rem;
+  &-content {
+    p {
+      @extend .hl-four;
+    }
+  }
+}

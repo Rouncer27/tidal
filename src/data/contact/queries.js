@@ -14,6 +14,12 @@ export const Contact_Hero_Query = `
     }
 `;
 
+export const Contact_Intro_Query = `
+    contactIntro: contactIntroComponent {
+        content
+    }
+`;
+
 export const Meet_Us_Query = `
     meetUs: meetUsComponent {
         topTitle

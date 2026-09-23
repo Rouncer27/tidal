@@ -1,0 +1,14 @@
+---
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./contactIntro.scss";
+
+const { content } = Astro.props.data;
+---
+
+<div class="contact-intro">
+  <Wrapper classes="contact-intro-wrapper">
+    <div class="contact-intro-content">
+      <div set:html={content} />
+    </div>
+  </Wrapper>
+</div>
