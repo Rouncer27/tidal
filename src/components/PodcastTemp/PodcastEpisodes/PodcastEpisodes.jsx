@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./podcastEpisodes.scss";
 import reactSlick from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,30 +6,34 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Slider = reactSlick.default || reactSlick;
 
-const settings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  arrows: true,
-  centerMode: true,
-  centerPadding: "16.6667%",
-
-  responsive: [
-    {
-      breakpoint: 769,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: false,
-        centerPadding: "0",
-      },
-    },
-  ],
-};
-
 const PodcastEpisodes = ({ data }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: isMobile ? 1 : 2,
+    slidesToScroll: 1,
+    arrows: true,
+    centerMode: !isMobile,
+    centerPadding: isMobile ? "0" : "16.6667%",
+  };
+
   return (
     <div className="pod-eps">
       <div className="pod-eps-wrapper">
