@@ -33,13 +33,23 @@
     width: 100%;
 
     &-icon {
-      width: calc(30% - 5rem);
-      margin-right: 5rem;
+      width: calc(100%);
+      margin-bottom: 5rem;
+
+      @media (min-width: 768px) {
+        width: calc(30% - 5rem);
+        margin-right: 5rem;
+        margin-bottom: 0;
+      }
     }
 
     &-content {
-      width: calc(70% - 5rem);
-      margin-left: 5rem;
+      width: calc(100%);
+
+      @media (min-width: 768px) {
+        width: calc(70% - 5rem);
+        margin-left: 5rem;
+      }
 
       p {
         color: $whiteColor;

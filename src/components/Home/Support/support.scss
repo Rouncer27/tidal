@@ -28,8 +28,8 @@
   }
 
   &-step {
-    width: 100%;
-    margin: 4rem 0;
+    width: calc(100% - 8rem);
+    margin: 4rem;
     perspective: 1200px;
 
     @media (min-width: 768px) {
@@ -40,9 +40,13 @@
     &-inner {
       position: relative;
       width: 100%;
-      min-height: 55rem;
+      min-height: 50rem;
       transform-style: preserve-3d;
       height: 100%;
+
+      @media (min-width: 768px) {
+        min-height: 55rem;
+      }
     }
 
     &-front,

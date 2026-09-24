@@ -32,10 +32,15 @@
   }
 
   &-block {
-    width: calc((100% / 3) - 4rem);
+    width: calc((100%) - 4rem);
     margin: 2rem;
     padding: 2rem;
     text-align: center;
+
+    @media (min-width: 768px) {
+      width: calc((100% / 3) - 4rem);
+      margin: 2rem;
+    }
 
     &:nth-of-type(2n + 1) {
       background-color: rgba($primaryColor, 0.79);

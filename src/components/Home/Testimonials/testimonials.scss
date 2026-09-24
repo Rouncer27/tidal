@@ -37,8 +37,14 @@
 
   &-image {
     position: absolute;
-    top: 3rem;
-    right: 0;
-    width: 34.5rem;
+    top: 2rem;
+    right: -2rem;
+    width: 27.5rem;
+
+    @media (min-width: 768px) {
+      top: 3rem;
+      right: 0;
+      width: 34.5rem;
+    }
   }
 }

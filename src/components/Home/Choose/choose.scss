@@ -9,10 +9,13 @@
 
   &-intro {
     width: 100%;
-    margin-right: auto;
-    margin-left: 0;
-    margin-bottom: 20rem;
-    max-width: 65rem;
+
+    @media (min-width: 768px) {
+      margin-right: auto;
+      margin-left: 0;
+      margin-bottom: 20rem;
+      max-width: 65rem;
+    }
 
     h2:first-of-type {
       @extend.hl-four;
@@ -25,19 +28,37 @@
   }
 
   &-images {
-    position: absolute;
-    top: 20rem;
-    right: -5vw;
+    position: relative;
+    margin: 3rem auto;
+
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 20rem;
+      right: -5vw;
+      margin: 0;
+    }
 
     &-square {
       position: absolute;
       top: 0;
-      left: -17.5rem;
-      max-width: 24.4rem;
+      left: -2.5rem;
+      max-width: 17rem;
+
+      @media (min-width: 768px) {
+        left: -17.5rem;
+        max-width: 24.4rem;
+      }
     }
 
     &-circle {
-      max-width: 44.8rem;
+      max-width: 75%;
+      margin-right: 0;
+      margin-left: auto;
+
+      @media (min-width: 768px) {
+        max-width: 44.8rem;
+        margin-left: 0;
+      }
     }
   }
 
