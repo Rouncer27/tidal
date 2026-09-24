@@ -23,6 +23,27 @@
 
   &-slider {
     width: 100%;
+
+    .slick-dots {
+      bottom: -5rem;
+
+      li {
+        width: 4rem;
+        height: 4rem;
+
+        button {
+          width: 4rem;
+          height: 4rem;
+
+          &::before {
+            font-size: 2rem;
+            width: 4rem;
+            height: 4rem;
+            color: #95b1a5;
+          }
+        }
+      }
+    }
   }
 
   &-slide {
@@ -37,8 +58,14 @@
 
   &-image {
     position: absolute;
-    top: 3rem;
-    right: 0;
-    width: 34.5rem;
+    top: 2rem;
+    right: -2rem;
+    width: 27.5rem;
+
+    @media (min-width: 768px) {
+      top: 3rem;
+      right: 0;
+      width: 34.5rem;
+    }
   }
 }

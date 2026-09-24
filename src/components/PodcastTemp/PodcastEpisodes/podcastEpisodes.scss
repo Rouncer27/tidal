@@ -65,13 +65,17 @@
 
   &-slide {
     position: relative;
-    margin: auto 1rem;
+    margin: auto 0;
     background-color: $accentColor;
     padding: 3rem;
     padding-bottom: 10rem;
     border-radius: 5.2rem;
     display: flex !important;
     height: 100%;
+
+    @media (min-width: 768px) {
+      margin: auto 1rem;
+    }
 
     &-container {
       text-align: center;

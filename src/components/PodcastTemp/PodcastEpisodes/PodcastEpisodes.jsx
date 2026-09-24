@@ -15,6 +15,18 @@ const settings = {
   arrows: true,
   centerMode: true,
   centerPadding: "16.6667%",
+
+  responsive: [
+    {
+      breakpoint: 769,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: false,
+        centerPadding: "0",
+      },
+    },
+  ],
 };
 
 const PodcastEpisodes = ({ data }) => {
