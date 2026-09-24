@@ -150,6 +150,8 @@ export const Meet_Us_Query = `
             title
             content
             buttonText
+            buttonLink
+            openNewBrowserWindow
             icon  {
                 node {
                     sourceUrl
@@ -157,14 +159,6 @@ export const Meet_Us_Query = `
                     mediaDetails {
                         width
                         height
-                    }
-                }
-            }
-        
-        buttonLink {
-            edges {
-                node {
-                    uri
                     }
                 }
             }
