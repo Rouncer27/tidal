@@ -45,7 +45,11 @@ const imageAlt = image?.node?.altText || "";
               set:html={link.content}
             />
             <div class="contact-meet-us-block-link">
-              <a href={link?.buttonLink?.edges[0].node.uri}>
+              <a
+                target={link?.openNewBrowserWindow ? `_blank" ` : `_self`}
+                rel="noopener"
+                href={link?.buttonLink}
+              >
                 {link?.buttonText}
               </a>
             </div>
