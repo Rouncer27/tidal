@@ -30,6 +30,7 @@ export const Intro_Query = `
         subTitle
         content
         buttonText
+        buttonLink
     }
 `;
 

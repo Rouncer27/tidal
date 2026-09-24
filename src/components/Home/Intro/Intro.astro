@@ -3,7 +3,8 @@ import Button from "../../common/shared/Button.astro";
 import Wrapper from "../../common/shared/Wrapper.astro";
 import "./intro.scss";
 
-const { smallTitle, title, subTitle, content, buttonText } = Astro.props.data;
+const { smallTitle, title, subTitle, content, buttonText, buttonLink } =
+  Astro.props.data;
 ---
 
 <div class="home-intro">
@@ -15,7 +16,13 @@ const { smallTitle, title, subTitle, content, buttonText } = Astro.props.data;
     </div>
     <div class="home-intro-content" set:html={content} />
     <div class="home-intro-links">
-      <Button ele="a" btnstyle="one">
+      <Button
+        target="_blank"
+        rel="noopener"
+        ele="a"
+        btnstyle="one"
+        href={buttonLink}
+      >
         {buttonText}
       </Button>
     </div>

@@ -25,6 +25,27 @@
     width: 100%;
   }
 
+  .slick-dots {
+    bottom: -5rem;
+
+    li {
+      width: 4rem;
+      height: 4rem;
+
+      button {
+        width: 4rem;
+        height: 4rem;
+
+        &::before {
+          font-size: 2rem;
+          width: 4rem;
+          height: 4rem;
+          color: #95b1a5;
+        }
+      }
+    }
+  }
+
   &-slide {
     &-content {
       width: 100%;
