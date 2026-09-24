@@ -4,7 +4,7 @@
 
 .contact-hero {
   position: relative;
-  min-height: 60rem;
+  min-height: 65rem;
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -65,12 +65,19 @@
 
   &-content {
     position: absolute;
-    top: 27.15rem;
+    top: 27rem;
     left: 0;
-    width: auto;
+    width: 100%;
     padding-right: 10vw;
     background-color: rgba($color: #1d626b, $alpha: 0.8);
     z-index: 100;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      top: 27.15rem;
+      width: auto;
+      text-align: left;
+    }
 
     &-container {
       width: 100%;
