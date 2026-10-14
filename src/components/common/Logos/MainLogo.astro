@@ -13,8 +13,8 @@ const {
 const logoSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Praire Haven Homes",
-  url: "https://prairehavenhomes.com/",
+  name: "Tidal Accounting",
+  url: "https://example.com/",
   logo: {
     "@type": "ImageObject",
     url: sourceUrl,
@@ -40,5 +40,5 @@ const jsonLd = JSON.stringify(logoSchema, null, 2);
   </div>
 
   <!-- 4️⃣ Inline JSON-LD Schema -->
-  <script type="application/ld+json" is:inline set:html={jsonLd} />
+  <script type="application/ld+json" is:inline set:html={jsonLd}></script>
 </div>
