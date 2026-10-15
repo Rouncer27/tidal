@@ -79,6 +79,7 @@ const Hamburger = ({ state, mainMenu, mainLogo, pathname, socialMedia }) => {
                       title={item.label}
                       subMenu={item.childItems.nodes}
                       pathname={pathname}
+                      target={item.target || undefined}
                     />
                   );
                 })}

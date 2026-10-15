@@ -3,6 +3,7 @@ export const Header_Menu_Query = `
         menuItems(first: 99999) {
             nodes {
                 label
+                target
                 uri
                 parentId
                 cssClasses
@@ -22,6 +23,7 @@ export const Mobile_Menu_Query = `
         menuItems(first: 99999) {
             nodes {
                 label
+                target
                 uri
                 parentId
                 cssClasses

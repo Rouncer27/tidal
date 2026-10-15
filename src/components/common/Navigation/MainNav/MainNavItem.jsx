@@ -13,6 +13,8 @@ const MainNavItem = ({ item, currentPage, pathname }) => {
 
   const classes = item.cssClasses.join(" ");
 
+  console.log("TREVOR: ", item);
+
   return (
     <li
       className={`main-nav-top-list-item ${classes}`}
@@ -24,6 +26,8 @@ const MainNavItem = ({ item, currentPage, pathname }) => {
         className={`${currentPage ? "main-nav-current" : ""}`}
         href={item.uri}
         title={item.label}
+        target={item.target || undefined}
+        rel={item.target ? "noopener noreferrer" : undefined}
       >
         {item.label}
       </a>
