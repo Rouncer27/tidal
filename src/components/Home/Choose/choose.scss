@@ -4,8 +4,12 @@
 
 .choose {
   position: relative;
-  padding-top: 15rem;
+  padding-top: 5rem;
   background-color: #dbe5e6;
+
+  @media (min-width: 768px) {
+    padding-top: 15rem;
+  }
 
   &-intro {
     width: 100%;
