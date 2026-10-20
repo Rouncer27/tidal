@@ -13,7 +13,7 @@ export default defineConfig({
       devSourcemap: true, // ✅ Enables CSS/SCSS source maps for better debugging
     },
   },
-  site: "https://tidal-accounting.netlify.app/",
+  site: "https://tidalaccounting.ca/",
   integrations: [react(), sitemap()],
   image: {
     domains: ["tidal.swbdatabases3.ca/"],
