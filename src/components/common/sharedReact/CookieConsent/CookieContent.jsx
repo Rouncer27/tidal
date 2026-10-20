@@ -11,14 +11,14 @@ const CookieConsent = () => {
     let d = new Date();
     let oneYear = new Date(d.getFullYear() + 1, d.getMonth(), d.getDate());
     document.cookie =
-      "sse-cookie-consent=granted; expires=" + oneYear + "; path=/";
+      "tda-cookie-consent=granted; expires=" + oneYear + "; path=/";
     consentGranted();
   };
 
   const handleDecline = () => {
     setCookies("denied");
     // declined cookie only lasts for the session
-    document.cookie = "sse-cookie-consent=denied; path=/";
+    document.cookie = "tda-cookie-consent=denied; path=/";
   };
 
   // this waits to load the cookie banner until the component is mounted
@@ -30,17 +30,17 @@ const CookieConsent = () => {
   }, []);
 
   const banner = isMounted ? (
-    <div>
-      <div
-        id="cookie-banner"
-        className={`${cookies === "granted" || cookies === "denied" ? "hidden" : ""} cookie-banner-container`}
-      >
-        <div className="">
+    <div
+      className={`${cookies === "granted" || cookies === "denied" ? "hidden" : ""} cookie-banner-wrapper`}
+    >
+      <div id="cookie-banner" className={`cookie-banner-container`}>
+        <div className="cookie-banner-container-wrapper">
           <p className="">
-            We use Google Analytics to understand website usage and improve
-            performance. You can manage your analytics preferences below.{" "}
-            <a className="" href="/privacy-policy">
-              Learn more in our Privacy Policy & Terms of Use.
+            We use cookies to make your experience even better and to analyze
+            our website traffic. By clicking "Accept", you consent to our use of
+            cookies. To learn more, see our{" "}
+            <a className="" href="/privacy-policy/">
+              privacy policy.
             </a>
           </p>
 
@@ -53,10 +53,8 @@ const CookieConsent = () => {
             </button>
           </div>
         </div>
+        <div className="cookie-banner-overlay"></div>
       </div>
-      <div
-        className={`${cookies === "granted" || cookies === "denied" ? "hidden" : ""} cookie-banner-overlay`}
-      />
     </div>
   ) : null;
 
