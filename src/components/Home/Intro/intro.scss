@@ -5,12 +5,22 @@
 .home-intro {
   background-color: $shadowColor;
 
+  &-wrapper {
+    @media (min-width: 768px) {
+      padding-top: 0 !important;
+    }
+  }
+
   &-title {
     width: 100%;
 
     &-small {
       @extend .hl-four;
       color: $whiteColor;
+
+      @media (min-width: 768px) {
+        margin-top: 0;
+      }
     }
 
     &-headline {
