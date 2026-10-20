@@ -7,18 +7,22 @@
   padding-top: 5rem;
   background-color: #dbe5e6;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     padding-top: 15rem;
   }
 
   &-intro {
     width: 100%;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1025px) {
       margin-right: auto;
       margin-left: 0;
-      margin-bottom: 20rem;
+      margin-bottom: 10rem;
       max-width: 65rem;
+    }
+
+    @media (min-width: 1250px) {
+      margin-bottom: 2rem;
     }
 
     h2:first-of-type {
@@ -35,7 +39,14 @@
     position: relative;
     margin: 3rem auto;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 17.5rem;
+      right: -7.5vw;
+      margin: 0;
+    }
+
+    @media (min-width: 1250px) {
       position: absolute;
       top: 20rem;
       right: -5vw;
@@ -52,6 +63,16 @@
         left: -17.5rem;
         max-width: 24.4rem;
       }
+
+      @media (min-width: 1025px) {
+        left: -8rem;
+        max-width: 18rem;
+      }
+
+      @media (min-width: 1250px) {
+        left: -17.5rem;
+        max-width: 24.4rem;
+      }
     }
 
     &-circle {
@@ -63,6 +84,16 @@
         max-width: 44.8rem;
         margin-left: 0;
       }
+
+      @media (min-width: 1025px) {
+        max-width: 35rem;
+        margin-left: 0;
+      }
+
+      @media (min-width: 1250px) {
+        max-width: 44.8rem;
+        margin-left: 0;
+      }
     }
   }
 
@@ -71,6 +102,22 @@
     max-width: 94rem;
     margin-right: auto;
     margin-left: 0;
+
+    @media (min-width: 1250px) {
+      max-width: 70rem;
+    }
+
+    @media (min-width: 1300px) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1400px) {
+      max-width: 95rem;
+    }
+
+    @media (min-width: 1599px) {
+      max-width: 120rem;
+    }
   }
 
   &-graphic {
