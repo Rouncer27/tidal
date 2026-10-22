@@ -1,10 +1,11 @@
 @use "../../../../styles/abstracts/" as *;
 @use "../../../../styles/global/paragraphs";
 @use "../../../../styles/global/buttons";
+@use "../../../../styles/utils";
 
 .cookie-banner-wrapper {
   position: fixed;
-  top: 0;
+  //top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -20,7 +21,7 @@
 
   .cookie-banner-overlay {
     position: fixed;
-    top: 0;
+    //height: 10rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -30,29 +31,30 @@
 
   &-wrapper {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    //top: 50%;
+    bottom: 0;
+    left: 0;
     width: 100%;
     padding: 2rem;
-    transform: translate(-50%, -50%);
-    background-color: $shadowColor;
-    border-radius: 0.5rem;
+    //transform: translate(-50%, -50%);
+    background-color: $primaryColor;
+    //border-radius: 0.5rem;
     text-align: center;
     z-index: 100000000;
 
     @media (min-width: 768px) {
-      width: 65rem;
+      //width: 65rem;
     }
   }
 
   p {
-    @extend .p-one;
+    @extend .p-two;
     color: $whiteColor;
   }
 
   a {
-    @extend .p-one;
-    color: $primaryColor;
+    @extend .p-two;
+    color: $accentColor;
 
     &:hover {
       color: $whiteColor;
@@ -62,6 +64,7 @@
   button {
     @extend .btn;
     @extend .btn-two;
+    @include utils.font-sizer(1.6, 1.8, 76.8, 150, 1.6);
     margin-bottom: 2.5rem;
 
     @media (min-width: 768px) {
